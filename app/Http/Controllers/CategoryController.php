@@ -84,4 +84,20 @@ class CategoryController extends Controller
             'message' => 'category updated successfully'
         ]);
     }
+
+    public function deleteCategory($id)
+    {
+        $category = Category::find($id);
+        if ($category->image) {
+            $imagePath = public_path($category->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+        $category->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'category deleted successfully'
+        ]);
+    }
 }
