@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'category'], function () {
         Route::get('/getCategory', [CategoryController::class, 'getCategories']);
+        Route::get('/getCategoryById/{id}', [CategoryController::class, 'getCategoryById']);
     });
     Route::group(['prefix' => 'item'], function () {
         Route::get('/getItem', [ItemController::class, 'getItems']);
