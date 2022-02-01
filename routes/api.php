@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/getCategoryById/{id}', [CategoryController::class, 'getCategoryById']);
         Route::post('/addCategory', [CategoryController::class, 'addCategory']);
         Route::post('/updateCategory', [CategoryController::class, 'updateCategory']);
+        Route::get('/deleteCategory/{id}', [CategoryController::class, 'deleteCategory']);
     });
     Route::group(['prefix' => 'item'], function () {
         Route::get('/getItem', [ItemController::class, 'getItems']);
